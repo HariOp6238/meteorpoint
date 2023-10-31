@@ -1,6 +1,6 @@
 # meteorpoint
 
-A new Flutter project waether App design
+A new Flutter project weather App design
 
 ## Getting Started
 
