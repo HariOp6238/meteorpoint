@@ -98,6 +98,9 @@ class _HomepageState extends State<Homepage> {
                             fontSize: 25,
                             fontWeight: FontWeight.w500),
                       )),
+                      const SizedBox(
+                        height: 5,
+                      ),
                       const Center(
                           child: Text(
                         " Friday 16-09-23 9:00 am ",
@@ -107,7 +110,7 @@ class _HomepageState extends State<Homepage> {
                             fontWeight: FontWeight.w300),
                       )),
                       const SizedBox(
-                        height: 30,
+                        height: 40,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -172,9 +175,15 @@ class _HomepageState extends State<Homepage> {
                           ),
                         ],
                       ),
+                      const SizedBox(
+                        height: 20,
+                      ),
                       const Divider(
                         thickness: 0.5,
                         color: Colors.grey,
+                      ),
+                      const SizedBox(
+                        height: 20,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
