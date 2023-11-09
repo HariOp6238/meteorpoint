@@ -3,6 +3,11 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'package:intl/intl.dart';
+import 'package:meteorpoint/controll/controller.dart';
+
+import 'package:provider/provider.dart';
+
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
 
@@ -11,8 +16,29 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  Controller homeprovider = Controller();
+
+  @override
+  void initState() {
+    homeprovider.getweatherdata();
+
+    homeprovider.getcurrentcity();
+    super.initState();
+  }
+
+  // getcity() async {
+  //   String cityname = await homeprovider.getcurrentcity();
+  // }
+
   @override
   Widget build(BuildContext context) {
+    final homeprovider = Provider.of<Controller>(context);
+
+    double temperatureInFahrenheit =
+        homeprovider.responsedata?.main?.temp?.toDouble() ?? 30;
+
+    double temperatureInCelsius = (temperatureInFahrenheit - 32) * 5 / 9;
+
     return Scaffold(
         extendBodyBehindAppBar: true,
         backgroundColor: Colors.black,
@@ -67,7 +93,7 @@ class _HomepageState extends State<Homepage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                        " 📍hai harikrishnan",
+                        'kakkanad kerala...📍',
                         style: TextStyle(
                             color: Colors.white, fontWeight: FontWeight.w300),
                       ),
@@ -82,17 +108,17 @@ class _HomepageState extends State<Homepage> {
                             fontSize: 25),
                       ),
                       Image.asset("assets/1.png"),
-                      const Center(
+                      Center(
                           child: Text(
-                        " 21°C",
-                        style: TextStyle(
+                        "${temperatureInCelsius}°C",
+                        style: const TextStyle(
                             color: Colors.white,
                             fontSize: 55,
                             fontWeight: FontWeight.bold),
                       )),
                       const Center(
                           child: Text(
-                        " Thunder Storm",
+                        'ThunderStorm',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 25,
@@ -101,10 +127,11 @@ class _HomepageState extends State<Homepage> {
                       const SizedBox(
                         height: 5,
                       ),
-                      const Center(
+                      Center(
                           child: Text(
-                        " Friday 16-09-23 9:00 am ",
-                        style: TextStyle(
+                        DateFormat('EEE MMM d, yyyy h:mm a')
+                            .format(DateTime.now()),
+                        style: const TextStyle(
                             color: Colors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.w300),
@@ -136,7 +163,7 @@ class _HomepageState extends State<Homepage> {
                                   SizedBox(
                                     height: 4,
                                   ),
-                                  Text("5:00 Am",
+                                  Text('4:30 Am',
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.w700))
@@ -197,20 +224,23 @@ class _HomepageState extends State<Homepage> {
                               const SizedBox(
                                 width: 5,
                               ),
-                              const Column(
+                              Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
+                                  const Text(
                                     "Max Temp",
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w700),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 4,
                                   ),
-                                  Text("30 C",
-                                      style: TextStyle(
+                                  Text(
+                                      homeprovider.responsedata?.main?.tempMax
+                                              .toString() ??
+                                          '30',
+                                      style: const TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.w700))
                                 ],
@@ -226,20 +256,23 @@ class _HomepageState extends State<Homepage> {
                               const SizedBox(
                                 width: 5,
                               ),
-                              const Column(
+                              Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
+                                  const Text(
                                     "Min Temp",
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w700),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 4,
                                   ),
-                                  Text("-1 C",
-                                      style: TextStyle(
+                                  Text(
+                                      homeprovider.responsedata?.main?.tempMin
+                                              .toString() ??
+                                          '30',
+                                      style: const TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.w700))
                                 ],
