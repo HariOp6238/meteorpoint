@@ -1,16 +1,15 @@
 # meteorpoint
 
-A new Flutter project.
+A new Flutter project weather App UI design
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is a starting point for a Flutter application in future.
 
-A few resources to get you started if this is your first Flutter project:
+#output Screenshot of Ui
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+
+![Screenshot 2023-10-31 235651](https://github.com/HariOp6238/meteorpoint/assets/143381736/72d70796-6c39-4eb7-9ce2-c5435f9fd5ea)
