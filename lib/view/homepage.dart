@@ -151,7 +151,7 @@ class _HomepageState extends State<Homepage> {
                           height: 8,
                         ),
                         const Text(
-                          "Hello !",
+                          "Hello👋",
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
