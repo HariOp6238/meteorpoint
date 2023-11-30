@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:meteorpoint/view/homepage.dart';
+import 'package:meteorpoint/splashscreen/splash.dart';
 
 void main() {
   runApp(const Myapp());
@@ -16,9 +15,6 @@ class Myapp extends StatefulWidget {
 class _MyappState extends State<Myapp> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Homepage(),
-    );
+    return const MaterialApp(debugShowCheckedModeBanner: false, home: Splash());
   }
 }
