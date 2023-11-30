@@ -39,10 +39,10 @@ dependencies:
   http:
   provider:
   geolocator:
-  weather:
   intl:
-  equatable:
   geocoding:
+  permission_handler: 
+  weather: ^3.1.1
 
 dev_dependencies:
   flutter_test:
