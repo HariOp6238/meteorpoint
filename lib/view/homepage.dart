@@ -6,6 +6,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 
 import 'package:intl/intl.dart';
+import 'package:meteorpoint/view/others/privacy.dart';
 
 import 'package:permission_handler/permission_handler.dart';
 import 'package:weather/weather.dart';
@@ -143,7 +144,7 @@ class _HomepageState extends State<Homepage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          " ${locationtext} 📍",
+                          " $locationtext📍",
                           style: const TextStyle(
                               color: Colors.white, fontWeight: FontWeight.w300),
                         ),
@@ -167,13 +168,14 @@ class _HomepageState extends State<Homepage> {
                               fontWeight: FontWeight.bold),
                         )),
                         Center(
-                            child: Text(
-                          _weather?.weatherDescription?.toUpperCase() ?? "",
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 25,
-                              fontWeight: FontWeight.w500),
-                        )),
+                          child: Text(
+                            _weather?.weatherDescription?.toUpperCase() ?? "",
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 25,
+                                fontWeight: FontWeight.w500),
+                          ),
+                        ),
                         const SizedBox(
                           height: 5,
                         ),
@@ -207,6 +209,23 @@ class _HomepageState extends State<Homepage> {
                         maxtemp_mintemp(weather: _weather),
 
                         //***************wind and humdidity*****************//
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Center(
+                          child: TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const Privacy(),
+                                    ));
+                              },
+                              child: const Text(
+                                'Privacy & Policy',
+                                style: TextStyle(color: Colors.white),
+                              )),
+                        )
                       ],
                     ),
                   ),
